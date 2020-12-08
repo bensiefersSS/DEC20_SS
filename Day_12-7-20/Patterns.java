@@ -8,7 +8,7 @@ public class Patterns {
         //pattern 1
         System.out.println("1)");
         for(int i=0; i < 5; i++){
-            //for last line of code
+            //For last line of code adds the unique line.
             if(i==4){
                 System.out.println(".........");
             }else{
@@ -21,7 +21,7 @@ public class Patterns {
         //pattern 2
         System.out.println("2)");
         for(int i=0; i < 5; i++){
-            //for first line of code
+            //For first line of code adds the unique line.
             if(i==0){
                 System.out.println("..........");
             }else{
@@ -39,12 +39,12 @@ public class Patterns {
                 System.out.println("...........");
                 continue;
             }
-            //pushes the "*" to the center
+            //Pushes the "*" to the center.
             for(int j=0; j < 5 - i; j++)
                 System.out.print(" ");
-            //Adds the center "*"
+            //Adds the center "*".
             System.out.print("*");
-            //Adds any additional "*"
+            //Adds any additional "*".
             for(int j=0; j < i; j++)
                 System.out.print("**");
             System.out.print("\n");
@@ -52,17 +52,17 @@ public class Patterns {
 
         //pattern 4
         System.out.println("4)");
-        //An inversed the previous pattern
+        //This is inverse the previous pattern.
         for(int i=4; i >= 0; i--){
             if(i==4){
                 System.out.println("............");
                 continue;
             }
-            //Adds any additional "*"
+            //Adds any additional "*".
             for(int j=0; j < 5 - i; j++)
                 System.out.print(" ");
             System.out.print("*");
-            //Adds any additional "*"
+            //Adds any additional "*".
             for(int j=0; j < i; j++)
                 System.out.print("**");
             System.out.print("\n");
