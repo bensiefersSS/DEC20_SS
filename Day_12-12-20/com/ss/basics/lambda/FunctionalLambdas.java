@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Function;
 
-interface Function2<One, Two, Three> {
+interface PerformOperation<One, Two> {
+    public Two apply(One one);
+}
+interface PerformOperation2<One, Two, Three> {
     public Three apply(One one, Two two);
 }
 interface Function3<One, Two, Three, Four> {
@@ -46,11 +49,11 @@ public class FunctionalLambdas {
     }
 
 
-    public static Function<Integer, Boolean> isOdd(){
+    public static PerformOperation<Integer, Boolean> isOdd(){
         return (value) -> value % 2 != 0;
     }
 
-    public static Function<Integer, Boolean> isPrime(){
+    public static PerformOperation<Integer, Boolean> isPrime(){
         return (value) -> {
             if(value <= 3){
                 return value > 1;
@@ -68,7 +71,7 @@ public class FunctionalLambdas {
         };
     }
 
-    public static Function<String, Boolean> isPalindrome(){
+    public static PerformOperation<String, Boolean> isPalindrome(){
         return (value) -> {
             StringBuffer sb = new StringBuffer();
             for(int i=value.length()-1; i >= 0; i--){
@@ -78,26 +81,26 @@ public class FunctionalLambdas {
         };
     }
 
-    public static Function<Integer[], Integer[]> getRightMost(){
+    public static PerformOperation<Integer[], Integer[]> getRightMost(){
         return (values) -> {
             return Arrays.stream(values).map(value -> value % 10).toArray(Integer[]::new);
 
         };
     }
 
-    public static Function<Integer[], Integer[]> multiplyBy2(){
+    public static PerformOperation<Integer[], Integer[]> multiplyBy2(){
         return (values) -> {
             return Arrays.stream(values).map(value -> value * 2).toArray(Integer[]::new);
         };
     }
 
-    public static Function<String[], String[]> removeX(){
+    public static PerformOperation<String[], String[]> removeX(){
        return (values) -> {
            return Arrays.stream(values).map(value -> value.replace("x","")).toArray(String[]::new);
        };
     }
 
-    public static Function2<Integer[], Integer, Boolean> existsSubArraySum(){
+    public static PerformOperation2<Integer[], Integer, Boolean> existsSubArraySum(){
         return (values, target) ->{
             int lastValue = 0;
             int sum = 0;
@@ -141,7 +144,7 @@ public class FunctionalLambdas {
 
 
     //bulk of the subset sum problem
-    public static Function3<ArrayList<Integer>, Integer, Integer, Boolean> existsSubArraySumHelper(){
+    private static Function3<ArrayList<Integer>, Integer, Integer, Boolean> existsSubArraySumHelper(){
         return (values, target, n) -> {
             //target matched
             if(target == 0)

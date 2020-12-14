@@ -1,6 +1,6 @@
 package com.ss.basics.lambda;
 
-public class PerformOperation {
+public class Operation {
     public static void main(String[] args){
         String stub = "5\n1 4\n2 5\n3 898\n1 3\n2 12";
         performOperationOnString(stub);
