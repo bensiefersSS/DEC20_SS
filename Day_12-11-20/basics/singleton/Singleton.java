@@ -8,8 +8,11 @@ public class Singleton {
     private Singleton singleton;
 
     public Singleton getInstance(){
-        if(singleton == null)
-            singleton = new Singleton();
+        if(singleton == null){
+            synchronized (Singleton .class){
+                singleton = new Singleton();
+            }
+        }
         return singleton;
     }
 }
